@@ -1,12 +1,6 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
-export default defineConfig({});
-
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://auguste-archiapati.github.io',
+  site: 'https://Auguste-Archiapati.github.io',
   base: '/Portfolio',
 });
