@@ -8,7 +8,7 @@ interface Props {
 const { data, id } = Astro.props.project;
 ---
 
-<a href={`${base}/work/${id}`}>Lien vers {id}</a>
+<a href={`${base}/work/${id}`}>$%7Bid%7D{id}</a>
 	<span class="title">{data.title}</span>
 	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
 </a>
