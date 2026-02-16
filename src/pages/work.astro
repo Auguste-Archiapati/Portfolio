@@ -25,31 +25,29 @@ const projects = (await getCollection('work')).sort(
 				tagline="Voici touts mes projets réalisée durant mes années de BTS "
 				align="start"
 			/>
-			<table align="center" border="0" cellpadding="0" cellspacing="10">
+			<table align="center">
   <tr>
-    <td bgcolor="#fff8fa" style="border-radius: 20px; padding: 20px;" width="300" valign="top">
+    <td bgcolor="#f6f8fa" style="border-radius: 20px; padding: 20px;" width="320" valign="top">
       <div align="center">
-        <h3>AD</h3>
-        <p>Une description courte qui tient dans la bulle pour expliquer le contenu du PDF.</p>
-        <a href="public/assets/ad.docx" target="_blank">
-        <a href="public/assets/ad.docx" target="_blank">
-   download="ad.docx">Télécharger le doc</a>
-           <img src="https://img.shields.io/badge/VOIR_LE_PDF-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
-        </a>
-      </div>
-    </td>
-    
-    <td bgcolor="#f6f8fa" style="border-radius: 20px; padding: 20px;" width="300" valign="top">
-      <div align="center">
+        <img src="public/assets/ad.png" style="border-radius: 15px; border: 1px solid #e1e4e8;" width="280" alt="Aperçu du document">
+        
         <br><br>
-        <h3>Guide Pratique</h3>
-        <p>Ce guide contient toutes les instructions nécessaires pour l'installation.</p>
-        <a href="./guide.pdf">
-           <img src="https://img.shields.io/badge/VOIR_LE_PDF-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
+        
+        <h3 align="center">📄 Document Annonce (AD)</h3>
+        <p align="center">Consultez le descriptif complet au format Microsoft Word.</p>
+        
+        <a href="public/assets/ad.docx" download>
+          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
         </a>
+        
+        <br>
+        <p align="center">
+          <kbd>Microsoft Word</kbd>
+        </p>
       </div>
     </td>
   </tr>
+</table>
 </table>
 		</main>
 		<ContactCTA />
