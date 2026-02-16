@@ -58,19 +58,6 @@ const projects = (await getCollection('work'))
 					<h3>Mes Travaux</h3>
 					<p>Voici les travaux réalisée durant mes études </p>
 				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
 				<div class="cta">
 					<CallToAction href="/Portfolio/work/">
 						View All
