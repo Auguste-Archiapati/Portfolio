@@ -2,7 +2,7 @@
 title: Veille 
 publishDate: 2025-03-02 00:00:00
 img: "./assets/stock-1.jpg"
-img_alt: Iridescent ripples of a bright blue and pink liquid
+img_alt: img 1
 description: |
   Veille sur les dangers des objets connéctée.
 tags:
