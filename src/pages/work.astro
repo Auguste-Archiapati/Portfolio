@@ -25,15 +25,22 @@ const projects = (await getCollection('work')).sort(
 				tagline="Voici touts mes projets réalisée durant mes années de BTS "
 				align="start"
 			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+			<table align="center">
+  <tr>
+    <td width="33%">
+      <img src="image1.png" width="100%">
+      <h4>Projet A</h4>
+      <p>Description courte.</p>
+      <a href="lien1.pdf">📥 Télécharger</a>
+    </td>
+    <td width="33%">
+      <img src="image2.png" width="100%">
+      <h4>Projet B</h4>
+      <p>Description courte.</p>
+      <a href="lien2.pdf">📥 Télécharger</a>
+    </td>
+  </tr>
+</table>
 		</main>
 		<ContactCTA />
 	</div>
