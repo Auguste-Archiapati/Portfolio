@@ -5,10 +5,26 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
-// Tes données de téléchargement
+// 1. TOUT LE CODE LOGIQUE DOIT ÊTRE ICI
 const docs = [
-  { title: "Rapport 2024", desc: "Le bilan complet de l'année.", url: "/files/rapport.pdf", format: "PDF" },
-  { title: "Kit Media", desc: "Logos et photos haute définition.", url: "/files/media.zip", format: "ZIP" },
+  { 
+    title: "Mise en place authentification RADIUS", 
+    desc: "Documentation technique sur RADIUS 2024.", 
+    url: "/Mise en place d’une authentification RADIUS-2024.pdf", 
+    format: "PDF" 
+  },
+  { 
+    title: "Procédure Tablette", 
+    desc: "Guide de configuration des tablettes.", 
+    url: "/Procédure Tablette.docx", 
+    format: "DOCX" 
+  },
+  { 
+    title: "Réparation", 
+    desc: "Compte rendu de réparation matérielle.", 
+    url: "/Réparation.docx", 
+    format: "DOCX" 
+  }
 ];
 ---
 
@@ -43,10 +59,3 @@ const docs = [
 		<ContactCTA />
 	</div>
 </BaseLayout>
-
-<style>
-	/* On ajoute un peu d'espace au-dessus de la grille si nécessaire */
-	.wrapper {
-		margin-bottom: 5rem;
-	}
-</style>
