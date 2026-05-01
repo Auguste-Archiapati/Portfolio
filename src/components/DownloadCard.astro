@@ -1,80 +1,80 @@
 // src/components/DownloadCard.astro
 interface Props {
-  title: string;
-  description: string;
-  fileUrl: string;
-  fileSize?: string; // Optionnel
-  format: 'PDF' | 'ZIP' | 'IMG' | 'DOC';
+	title: string;
+	description: string;
+	url: string;
+	tag: string; // Ex: "PDF", "ZIP", "Doc"
 }
 
-const { title, description, fileUrl, fileSize, format } = Astro.props;
+const { title, description, url, tag } = Astro.props;
 ---
 
-<div class="card">
-  <div class="card-header">
-    <span class={`badge ${format.toLowerCase()}`}>{format}</span>
-    {fileSize && <span class="size">{fileSize}</span>}
-  </div>
-  
-  <div class="card-body">
-    <h3>{title}</h3>
-    <p>{description}</p>
-  </div>
-
-  <a href={fileUrl} download class="download-button">
-    Télécharger
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y1="3"></line></svg>
-  </a>
+<div class="download-card">
+	<div class="content">
+		<span class="tag">{tag}</span>
+		<h3>{title}</h3>
+		<p>{description}</p>
+	</div>
+	<a href={url} download class="download-link">
+		Télécharger
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y1="3"></line></svg>
+	</a>
 </div>
 
 <style>
-  .card {
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+	.download-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800); /* Utilise tes variables de thème si elles existent */
+		border-radius: 0.75rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+		transition: box-shadow 0.2s ease;
+	}
 
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
+	.download-card:hover {
+		box-shadow: var(--shadow-md);
+		border-color: var(--accent-regular);
+	}
 
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
+	.tag {
+		font-size: var(--text-xs);
+		padding: 0.2rem 0.5rem;
+		background: var(--accent-light);
+		color: var(--accent-text-over);
+		border-radius: 0.3rem;
+		font-weight: bold;
+	}
 
-  .badge {
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    background: #edf2f7;
-  }
+	h3 {
+		margin-top: 0.5rem;
+		font-size: var(--text-lg);
+		color: var(--gray-0);
+	}
 
-  /* Couleurs par format */
-  .pdf { background: #fee2e2; color: #991b1b; }
-  .zip { background: #fef3c7; color: #92400e; }
+	p {
+		font-size: var(--text-md);
+		color: var(--gray-300);
+		margin-bottom: 1.5rem;
+	}
 
-  h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
-  p { font-size: 0.9rem; color: #4a5568; flex-grow: 1; }
+	.download-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.75rem;
+		background: var(--accent-regular);
+		color: white;
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: bold;
+		transition: background-color 0.2s ease;
+	}
 
-  .download-button {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #3182ce;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: 600;
-  }
+	.download-link:hover {
+		background: var(--accent-dark);
+	}
 </style>
