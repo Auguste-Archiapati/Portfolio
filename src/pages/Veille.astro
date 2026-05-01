@@ -1,17 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DownloadCard from '../components/DownloadCard.astro';
-
 import ContactCTA from '../components/ContactCTA.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
+import DownloadCard from '../components/DownloadCard.astro';
 
-const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+// Tes données de téléchargement
+const docs = [
+  { title: "Rapport 2024", desc: "Le bilan complet de l'année.", url: "/files/rapport.pdf", format: "PDF" },
+  { title: "Kit Media", desc: "Logos et photos haute définition.", url: "/files/media.zip", format: "ZIP" },
+];
 ---
 
 <BaseLayout
@@ -22,37 +20,33 @@ const projects = (await getCollection('work')).sort(
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="Ma Veille"
-				tagline="Voici les différentes veilles réalisées "
+				tagline="Voici les différentes veilles réalisées"
 				align="start"
 			/>
-			const docs = [
-  { title: "Rapport 2024", desc: "Le bilan complet de l'année.", url: "/files/rapport.pdf", format: "PDF" as const },
-  { title: "Kit Media", desc: "Logos et photos haute définition.", url: "/files/media.zip", format: "ZIP" as const },
-];
----
 
-<Layout title="Téléchargements">
-  <section class="download-grid">
-    {docs.map(doc => (
-      <DownloadCard 
-        title={doc.title} 
-        description={doc.desc} 
-        fileUrl={doc.url} 
-        format={doc.format} 
-      />
-    ))}
-  </section>
-</Layout>
-
-<style>
-  .download-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-  }
-</style>
+			<Grid variant="offset">
+				{
+					docs.map((doc) => (
+						<li>
+							<DownloadCard
+								title={doc.title}
+								description={doc.desc}
+								url={doc.url}
+								tag={doc.format}
+							/>
+						</li>
+					))
+				}
+			</Grid>
 		</main>
+
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	/* On ajoute un peu d'espace au-dessus de la grille si nécessaire */
+	.wrapper {
+		margin-bottom: 5rem;
+	}
+</style>
