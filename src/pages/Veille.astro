@@ -1,3 +1,4 @@
+Extrait de code
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactCTA from '../components/ContactCTA.astro';
@@ -5,25 +6,25 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
-// 1. TOUT LE CODE LOGIQUE DOIT ÊTRE ICI
+// 1. TOUTE LA LOGIQUE DOIT ÊTRE ICI (Frontmatter)
 const docs = [
   { 
-    title: "Mise en place authentification RADIUS", 
-    desc: "Documentation technique sur RADIUS 2024.", 
+    title: "Mise en place RADIUS", 
+    desc: "Documentation technique sur l'authentification RADIUS.", 
     url: "/Mise en place d’une authentification RADIUS-2024.pdf", 
     format: "PDF" 
-  },
-  { 
-    title: "Procédure Tablette", 
-    desc: "Guide de configuration des tablettes.", 
-    url: "/Procédure Tablette.docx", 
-    format: "DOCX" 
   },
   { 
     title: "Réparation", 
     desc: "Compte rendu de réparation matérielle.", 
     url: "/Réparation.docx", 
-    format: "DOCX" 
+    format: "DOC" 
+  },
+  { 
+    title: "Gestion du Parc", 
+    desc: "Inventaire et gestion du parc informatique.", 
+    url: "/Gestion du Parc.docx", 
+    format: "DOC" 
   }
 ];
 ---
