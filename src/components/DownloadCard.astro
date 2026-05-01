@@ -1,11 +1,5 @@
+---
 // src/components/DownloadCard.astro
-interface Props {
-	title: string;
-	description: string;
-	url: string;
-	tag: string; // Ex: "PDF", "ZIP", "Doc"
-}
-
 const { title, description, url, tag } = Astro.props;
 ---
 
@@ -17,64 +11,35 @@ const { title, description, url, tag } = Astro.props;
 	</div>
 	<a href={url} download class="download-link">
 		Télécharger
-		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y1="3"></line></svg>
 	</a>
 </div>
 
 <style>
 	.download-card {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		padding: 1.5rem;
-		border: 1px solid var(--gray-800); /* Utilise tes variables de thème si elles existent */
-		border-radius: 0.75rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
-		transition: box-shadow 0.2s ease;
+		gap: 1rem;
 	}
-
-	.download-card:hover {
-		box-shadow: var(--shadow-md);
-		border-color: var(--accent-regular);
-	}
-
 	.tag {
-		font-size: var(--text-xs);
-		padding: 0.2rem 0.5rem;
 		background: var(--accent-light);
 		color: var(--accent-text-over);
-		border-radius: 0.3rem;
+		padding: 0.2rem 0.5rem;
+		border-radius: 4px;
+		font-size: 0.8rem;
 		font-weight: bold;
 	}
-
-	h3 {
-		margin-top: 0.5rem;
-		font-size: var(--text-lg);
-		color: var(--gray-0);
-	}
-
-	p {
-		font-size: var(--text-md);
-		color: var(--gray-300);
-		margin-bottom: 1.5rem;
-	}
-
+	h3 { color: var(--gray-0); margin: 0; }
+	p { color: var(--gray-300); font-size: 0.9rem; }
 	.download-link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.75rem;
 		background: var(--accent-regular);
 		color: white;
-		text-decoration: none;
+		text-align: center;
+		padding: 0.5rem;
 		border-radius: 0.5rem;
-		font-weight: bold;
-		transition: background-color 0.2s ease;
-	}
-
-	.download-link:hover {
-		background: var(--accent-dark);
+		text-decoration: none;
 	}
 </style>
