@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DownloadCard from '../components/DownloadCard.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
@@ -24,15 +25,33 @@ const projects = (await getCollection('work')).sort(
 				tagline="Voici les différentes veilles réalisées "
 				align="start"
 			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+			const docs = [
+  { title: "Rapport 2024", desc: "Le bilan complet de l'année.", url: "/files/rapport.pdf", format: "PDF" as const },
+  { title: "Kit Media", desc: "Logos et photos haute définition.", url: "/files/media.zip", format: "ZIP" as const },
+];
+---
+
+<Layout title="Téléchargements">
+  <section class="download-grid">
+    {docs.map(doc => (
+      <DownloadCard 
+        title={doc.title} 
+        description={doc.desc} 
+        fileUrl={doc.url} 
+        format={doc.format} 
+      />
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+</style>
 		</main>
 		<ContactCTA />
 	</div>
