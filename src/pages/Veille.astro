@@ -1,4 +1,3 @@
-Extrait de code
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactCTA from '../components/ContactCTA.astro';
@@ -6,57 +5,43 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
-// 1. TOUTE LA LOGIQUE DOIT ÊTRE ICI (Frontmatter)
+// TOUTE LA LOGIQUE ICI (Entre les barres de séparation)
 const docs = [
   { 
     title: "Mise en place RADIUS", 
     desc: "Documentation technique sur l'authentification RADIUS.", 
     url: "/Mise en place d’une authentification RADIUS-2024.pdf", 
-    format: "PDF" 
+    tag: "PDF" 
   },
   { 
     title: "Réparation", 
     desc: "Compte rendu de réparation matérielle.", 
     url: "/Réparation.docx", 
-    format: "DOC" 
-  },
-  { 
-    title: "Gestion du Parc", 
-    desc: "Inventaire et gestion du parc informatique.", 
-    url: "/Gestion du Parc.docx", 
-    format: "DOC" 
+    tag: "DOC" 
   }
 ];
 ---
 
-<BaseLayout
-	title="Ma Veille | Auguste Archiapati"
-	description="Mes sujets de veille technologiques"
->
+<BaseLayout title="Ma Veille" description="Mes sujets de veille">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero
-				title="Ma Veille"
-				tagline="Voici les différentes veilles réalisées"
-				align="start"
-			/>
+			<Hero title="Ma Veille" tagline="Voici mes veilles" align="start" />
 
 			<Grid variant="offset">
-				{
-					docs.map((doc) => (
-						<li>
-							<DownloadCard
-								title={doc.title}
-								description={doc.desc}
-								url={doc.url}
-								tag={doc.format}
-							/>
-						</li>
-					))
-				}
+				{docs.map((doc) => (
+					<li>
+						<DownloadCard
+							title={doc.title}
+							description={doc.desc}
+							url={doc.url}
+							tag={doc.tag}
+						/>
+					</li>
+				))}
 			</Grid>
 		</main>
-
 		<ContactCTA />
+	</div>
+</BaseLayout>
 	</div>
 </BaseLayout>
