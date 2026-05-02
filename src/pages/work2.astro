@@ -5,28 +5,26 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
-// TOUTE LA LOGIQUE ICI (Entre les barres de séparation)
 const docs = [
   { 
-    title: "Cahiers des charges", 
-    desc: "Cahiers des charges stadium compagny.", 
+    title: "Cahier des charges", 
+    desc: "Cahier des charges de l'environement Stadium Compagny.", 
     url: "/Cahier.pdf", 
-    tag: "DOC" 
-  }
+    tag: "PDF" 
+  },
   { 
-    title: "Shéma de l'infrastructure réseaux", 
-    desc: "Shéma de l'infrastructure réseaux de l'infrastructure disponible pour l'E6.", 
+    title: "Shéma réseaux", 
+    desc: "Shéma réseaux de l'infractructure physique de l'examen pratique.", 
     url: "/Shéma.docx", 
-    tag: "DOC" 
-  }
+    tag: "DOCX" 
+  },
 ];
 ---
 
-<BaseLayout title="E6" description="Mes ressources concernant l'examen pratique">
+<BaseLayout title="Ma Veille" description="Mes sujets de veille">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="Ma Veille" tagline="Voici ma veille" align="start" />
-
+			<Hero title="Ma Veille" tagline="Voici mes documents de veille" align="start" />
 			<Grid variant="offset">
 				{docs.map((doc) => (
 					<li>
@@ -34,6 +32,15 @@ const docs = [
 							title={doc.title}
 							description={doc.desc}
 							url={doc.url}
+							tag={doc.tag}
+						/>
+					</li>
+				))}
+			</Grid>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
 							tag={doc.tag}
 						/>
 					</li>
