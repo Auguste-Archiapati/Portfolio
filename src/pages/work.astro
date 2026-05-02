@@ -1,17 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 import ContactCTA from '../components/ContactCTA.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
+import DownloadCard from '../components/DownloadCard.astro';
+
 export const prerender = true;
 
-const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+// Tes documents classés par catégorie
+const entrepriseDocs = [
+	{ title: "Gestion du Parc", desc: "Inventaire et maintenance via GLPI.", url: "/Gestion du Parc.docx", tag: "DOCX" },
+	{ title: "Masterisation PC", desc: "Configuration et mise à disposition d'ordinateurs.", url: "/Masterisation (1).docx", tag: "DOCX" },
+	{ title: "Réparation Poste", desc: "Rapport d'intervention et modification matérielle.", url: "/Réparation.docx", tag: "DOCX" },
+	{ title: "Réseau Wifi Radius", desc: "Mise en place d'une authentification RADIUS.", url: "/Mise en place d’une authentification RADIUS-2024.pdf", tag: "PDF" },
+	{ title: "Procédure Tablette", desc: "Configuration et mise à disposition de tablettes.", url: "/Procédure Tablette.docx", tag: "DOCX" }
+];
+
+const ecoleDocs = [
+	{ title: "Tableau de Synthèse", desc: "Récapitulatif des compétences du BTS.", url: "/Tableau Compétences Auguste Archiapati.xlsx", tag: "XLSX" },
+	{ title: "OCS Inventory", desc: "Mise en place de l'inventaire automatique.", url: "/ocs.docx", tag: "DOCX" },
+	{ title: "Active Directory", desc: "Gestion des utilisateurs et des groupes.", url: "/ad.docx", tag: "DOCX" },
+	{ title: "GLPI Scolaire", desc: "Gestion de parc et helpdesk.", url: "/glpi.docx", tag: "DOCX" },
+	{ title: "Pfsense", desc: "Configuration du pare-feu et routage.", url: "/pf.docx", tag: "DOCX" }
+];
 ---
 
 <BaseLayout
@@ -22,143 +34,53 @@ const projects = (await getCollection('work')).sort(
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="E5"
-				tagline="Voici touts mes projets réalisée durant mes années de BTS "
+				tagline="Voici tous mes projets réalisés durant mes années de BTS"
 				align="start"
 			/>
-			<table align="center">
-  <tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="320" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Tableau de Synthése</h3>
-        <p align="center">Récapitulatif des compétences.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/Tableau%20Comp%C3%A9tences%20Auguste%20Archiapati.xlsx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">OCS</h3>
-        <p align="center">OCS.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/ocs.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">AD</h3>
-        <p align="center">AD.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/ad.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">GLPI</h3>
-        <p align="center">GLPI.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/glpi.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Pfsense</h3>
-        <p align="center">pfsense.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/pf.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Gestion du Parc</h3>
-        <p align="center">Gestion du Parc.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/Gestion%20du%20Parc.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
- <tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Configuration et Mise à disposition d'ordinateur</h3>
-        <p align="center">Masterisation.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/Masterisation%20(1).docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Réparation/Modification de poste</h3>
-        <p align="center">Réparation.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/R%C3%A9paration.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Mise en place d'un réseau wifi</h3>
-        <p align="center">Radius.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/Mise%20en%20place%20d%E2%80%99une%20authentification%20RADIUS-2024.pdf" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-<tr>
-    <td bgcolor="#06080a" style="border-radius: 20px; padding: 20px;" width="160" valign="top">
-      <div align="center">
-        <br><br>
-        <h3 align="center">Configuration et Mise à disposition de tablette</h3>
-        <p align="center">Masterisation.</p>
-        <a href="https://downgit.github.io/#/home?url=https://github.com/Auguste-Archiapati/Portfolio/blob/main/public/assets/Proc%C3%A9dure%20Tablette.docx" download>
-          <img src="https://img.shields.io/badge/TÉLÉCHARGER-DOCX-blue?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Download DOCX">
-        </a>
-        <br>
-      </div>
-    </td>
-  </tr>
-</table>
-</table>
+
+			<section class="stack gap-4">
+				<h2 class="section-title">Réalisation en entreprise</h2>
+				<Grid variant="offset">
+					{entrepriseDocs.map((doc) => (
+						<li>
+							<DownloadCard 
+								title={doc.title} 
+								description={doc.desc} 
+								url={doc.url} 
+								tag={doc.tag} 
+							/>
+						</li>
+					))}
+				</Grid>
+			</section>
+
+			<section class="stack gap-4">
+				<h2 class="section-title">Réalisation à l'école</h2>
+				<Grid variant="offset">
+					{ecoleDocs.map((doc) => (
+						<li>
+							<DownloadCard 
+								title={doc.title} 
+								description={doc.desc} 
+								url={doc.url} 
+								tag={doc.tag} 
+							/>
+						</li>
+					))}
+				</Grid>
+			</section>
 		</main>
+
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.section-title {
+		font-size: var(--text-2xl);
+		color: var(--gray-0);
+		border-bottom: 1px solid var(--gray-800);
+		padding-bottom: 0.5rem;
+		margin-top: 2rem;
+	}
+</style>
