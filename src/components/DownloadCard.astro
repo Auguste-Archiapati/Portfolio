@@ -31,15 +31,22 @@ const { title, description, url, tag } = Astro.props;
 		border-radius: 4px;
 		font-size: 0.8rem;
 		font-weight: bold;
+		width: fit-content;
 	}
-	h3 { color: var(--gray-0); margin: 0; }
-	p { color: var(--gray-300); font-size: 0.9rem; }
+	h3 { color: var(--gray-0); margin: 0; font-size: var(--text-lg); }
+	p { color: var(--gray-300); font-size: var(--text-md); margin: 0; }
 	.download-link {
 		background: var(--accent-regular);
 		color: white;
 		text-align: center;
-		padding: 0.5rem;
+		padding: 0.75rem;
 		border-radius: 0.5rem;
 		text-decoration: none;
+		font-weight: bold;
+	}
+    .download-link:hover {
+        background: var(--accent-dark);
+    }
+</style>
 	}
 </style>
