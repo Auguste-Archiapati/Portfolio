@@ -6,36 +6,38 @@ import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
 const docs = [
-  { 
-    title: "Cahier des charges", 
-    desc: "Cahier des charges de l'environement Stadium Compagny.", 
-    url: "/Cahier.pdf", 
-    tag: "PDF" 
-  },
-  { 
-    title: "Shéma réseaux", 
-    desc: "Shéma réseaux de l'infractructure physique de l'examen pratique.", 
-    url: "/Shéma.docx", 
-    tag: "DOCX" 
-  },
+	{
+		title: "Cahier des charges",
+		desc: "Cahier des charges de l'environnement Stadium Compagny.",
+		url: "/Cahier.pdf",
+		tag: "PDF"
+	},
+	{
+		title: "Shéma réseaux",
+		desc: "Shéma réseaux de l'infrastructure physique de l'examen pratique.",
+		url: "/Shéma.docx",
+		tag: "DOCX"
+	}
 ];
 ---
 
 <BaseLayout title="E6" description="Mes documents concernant l'E6">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="E6" tagline="Mes documents concernant l'E6 " align="start" />
+			<Hero title="E6" tagline="Mes documents concernant l'E6" align="start" />
 			<Grid variant="offset">
-				{docs.map((doc) => (
-					<li>
-						<DownloadCard
-							title={doc.title}
-							description={doc.desc}
-							url={doc.url}
-							tag={doc.tag}
-						/>
-					</li>
-				))
+				{
+					docs.map((doc) => (
+						<li>
+							<DownloadCard
+								title={doc.title}
+								description={doc.desc}
+								url={doc.url}
+								tag={doc.tag}
+							/>
+						</li>
+					))
+				}
 			</Grid>
 		</main>
 		<ContactCTA />
