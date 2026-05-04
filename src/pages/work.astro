@@ -8,20 +8,20 @@ import DownloadCard from '../components/DownloadCard.astro';
 const base = import.meta.env.BASE_URL; // Récupère '/Portfolio/'
 
 const entrepriseDocs = [
-    { title: "Masterisation PC", desc: "Configuration et mise à disposition d'ordinateurs.", url: `${base}masterisationsoco.pdf`, tag: "PDF" },
-    { title: "Réparation Poste", desc: "Réparation de poste en vue de réutilisation.", url: `${base}repasoco.pdf`, tag: "PDF" },
-    { title: "Procédure Tablette", desc: "Configuration et mise à disposition de tablettes.", url: `${base}tabelttesoco.pdf`, tag: "PDF" },
-    { title: "Retour Matériel", desc: "Retour de poste en fin de vie ou pour réparation.", url: `${base}retoursoco.pdf`, tag: "PDF" },
-    { title: "WelcomeDay", desc: "Présentation pour les nouveaux arrivants.", url: `${base}wdsoco.pdf`, tag: "PDF" }
+    { title: "Masterisation PC", desc: "Configuration et mise à disposition d'ordinateurs.", url: "./masterisationsoco.pdf", tag: "PDF" },
+    { title: "Réparation Poste", desc: "Réparation de poste en vue de réutilisation.", url: "./repasoco.pdf", tag: "PDF" },
+    { title: "Procédure Tablette", desc: "Configuration et mise à disposition de tablettes.", url: "./tabelttesoco.pdf", tag: "PDF" },
+    { title: "Retour Matériel", desc: "Retour de poste en fin de vie ou pour réparation.", url: "./retoursoco.pdf", tag: "PDF" },
+    { title: "WelcomeDay", desc: "Présentation pour les nouveaux arrivants.", url: "./wdsoco.pdf", tag: "PDF" }
 ];
 
 const ecoleDocs = [
-    { title: "Tableau de Synthèse", desc: "Récapitulatif des compétences du BTS.", url: `${base}tableaucompetence.xlsx`, tag: "XLSX" },
-    { title: "OCS Inventory", desc: "Mise en place de l'inventaire automatique.", url: `${base}ocs.pdf`, tag: "PDF" },
-    { title: "Active Directory", desc: "Gestion des utilisateurs et des groupes.", url: `${base}ad.docx`, tag: "DOCX" },
-    { title: "GLPI Scolaire", desc: "Gestion de parc et helpdesk.", url: `${base}glpi.pdf`, tag: "PDF" },
-    { title: "Pfsense", desc: "Configuration du pare-feu et routage.", url: `${base}pf.pdf`, tag: "PDF" },
-    { title: "Réseau Wifi Radius", desc: "Mise en place authentification RADIUS.", url: `${base}radius.pdf`, tag: "PDF" }
+    { title: "Tableau de Synthèse", desc: "Récapitulatif des compétences du BTS.", url: "./tableaucompetence.xlsx", tag: "XLSX" },
+    { title: "OCS Inventory", desc: "Mise en place de l'inventaire automatique.", url: "./ocs.pdf", tag: "PDF" },
+    { title: "Active Directory", desc: "Gestion des utilisateurs et des groupes.", url: "./ad.docx", tag: "DOCX" },
+    { title: "GLPI Scolaire", desc: "Gestion de parc et helpdesk.", url: "./glpi.pdf", tag: "PDF" },
+    { title: "Pfsense", desc: "Configuration du pare-feu et routage.", url: "./pf.pdf", tag: "PDF" },
+    { title: "Réseau Wifi Radius", desc: "Mise en place authentification RADIUS.", url: "./radius.pdf", tag: "PDF" }
 ];
 ---
 
