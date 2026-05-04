@@ -5,14 +5,13 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 import DownloadCard from '../components/DownloadCard.astro';
 
-// On récupère la base URL pour GitHub Pages
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL; // Récupère '/Portfolio/'
 
 const entrepriseDocs = [
     { title: "Masterisation PC", desc: "Configuration et mise à disposition d'ordinateurs.", url: `${base}masterisationsoco.pdf`, tag: "PDF" },
     { title: "Réparation Poste", desc: "Réparation de poste en vue de réutilisation.", url: `${base}repasoco.pdf`, tag: "PDF" },
     { title: "Procédure Tablette", desc: "Configuration et mise à disposition de tablettes.", url: `${base}tabelttesoco.pdf`, tag: "PDF" },
-    { title: "Retour Matérielle", desc: "Retour de poste en fin de vie ou pour réparation.", url: `${base}retoursoco.pdf`, tag: "PDF" },
+    { title: "Retour Matériel", desc: "Retour de poste en fin de vie ou pour réparation.", url: `${base}retoursoco.pdf`, tag: "PDF" },
     { title: "WelcomeDay", desc: "Présentation pour les nouveaux arrivants.", url: `${base}wdsoco.pdf`, tag: "PDF" }
 ];
 
@@ -22,25 +21,22 @@ const ecoleDocs = [
     { title: "Active Directory", desc: "Gestion des utilisateurs et des groupes.", url: `${base}ad.docx`, tag: "DOCX" },
     { title: "GLPI Scolaire", desc: "Gestion de parc et helpdesk.", url: `${base}glpi.pdf`, tag: "PDF" },
     { title: "Pfsense", desc: "Configuration du pare-feu et routage.", url: `${base}pf.pdf`, tag: "PDF" },
-    { title: "Réseau Wifi Radius", desc: "Mise en place authentification RADIUS.", url: `${base}radius.pdf`, tag: "PDF" },
-    { title: "Site Stadium Company", desc: "Mise en place d'un site pour le satde.", url: `${base}stade.pdf`, tag: "PDF" },
-    { title: "Rsync", desc: "Mise en place de Rsync.", url: `${base}rsync.pdf`, tag: "PDF" },
-    { title: "Nagios", desc: "Mise en place de Nagios.", url: `${base}nagios.pdf`, tag: "PDF" }
+    { title: "Réseau Wifi Radius", desc: "Mise en place authentification RADIUS.", url: `${base}radius.pdf`, tag: "PDF" }
 ];
 ---
 
-<BaseLayout title="Mes Documents | Auguste Archiapati" description="Mes documents professionnels et scolaires">
+<BaseLayout title="Mes Documents" description="Documents professionnels et scolaires">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="Mes Documents" tagline="Retrouvez ici l'ensemble de mes travaux réalisés en entreprise et à l'école." align="start" />
+			<Hero title="Mes Documents" tagline="Travaux réalisés en entreprise et à l'école." align="start" />
 
-			<h2 class="section-title">Mes réalisations durant mes stages en entreprise</h2>
+			<h2 class="section-title">Mes réalisations en entreprise durant mes stages</h2>
 			<Grid variant="offset">
 				{entrepriseDocs.map((doc) => (
 					<li>
 						<DownloadCard 
 							title={doc.title}
-							description={doc.desc}
+							description={doc.desc} 
 							url={doc.url}
 							tag={doc.tag}
 						/>
